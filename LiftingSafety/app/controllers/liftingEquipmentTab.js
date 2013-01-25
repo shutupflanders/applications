@@ -4,6 +4,7 @@ var views = [];
 var categories = Alloy.Collections.category;
 categories.fetch();
 
+
 //Scrollable View  
 for(var i=1;i<categories.length;i++)
 {
@@ -14,14 +15,17 @@ var view = Ti.UI.createView({
         right:0,
         backgroundColor: '#123'
     });
-    
-    // Create an ImageView.
-    var image = Ti.UI.createImageView({
-        image : '/images/category/'+categories.at(i).get("image"),
-        width : auto,
-        height : auto,
-        top : 80
-    });
+ 	if(Titanium.Filesystem.isExternalStoragePresent()){
+ 		var sd_card_path = Titanium.Filesystem.externalStorageDirectory;
+	    // Create an ImageView.
+	    var image = Ti.UI.createImageView({
+	        image : '/LS/category/'+categories.at(i).get("image"),
+	        width : auto,
+	        height : auto,
+	        top : 80
+		    });
+		view.add(image);    
+   }
     
     // Add to the parent view.
     parentView.add(image);
