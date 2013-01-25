@@ -1,0 +1,8 @@
+<Alloy>
+	<Tab id="hsTab" title="Heigh Safety Store">
+		<Window id="hsWindow">
+			<Label id="hsTitle">Height Safety Shop</Label>
+			<Label id="hs1"></Label>
+		</Window>
+	</Tab>
+</Alloy>

@@ -1,0 +1,84 @@
+"Window": {
+	backgroundColor: "#fff"
+},
+"Label": {
+	width: Ti.UI.SIZE,
+	color: "#000",
+	font: {
+		fontSize: 20,
+		fontFamily: 'Verdana'
+	},
+	textAlign: 'Left'
+},
+"#leTab":{
+	backroundColor:"white",
+	icon:'/icons/leIcon.png'
+	
+},
+
+
+
+
+
+"#hsTab":{
+	backroundColor:"white",
+	icon:'/icons/hsIcon.png'
+	
+},
+"#hsTitle":{
+	contentWidth:'auto',
+    contentHeight:'auto',
+    top:0
+},
+
+
+
+
+"#title": {
+top: 0,
+height: '50dp',
+width: Ti.UI.FILL,
+color: '#fff',
+backgroundColor: '#a00',
+font: {
+fontSize: '36dp',
+fontWeight: 'bold'
+},
+textAlign: 'center'
+}
+
+"#table": {
+top: '50dp',
+bottom: 0
+}
+
+
+"#row": {
+height: '60dp',
+backgroundColor: '#fff'
+}
+
+"Label": {
+height: Ti.UI.SIZE,
+width: Ti.UI.SIZE
+}
+
+"#bookTitle": {
+top: '7dp',
+left: '7dp',
+font: {
+fontSize: '24dp',
+fontWeight: 'bold'
+}
+}
+
+"#author": {
+bottom: '7dp',
+left: '14dp',
+font: {
+fontSize: '16dp',
+fonWeight: 'normal'
+}
+}
+
+

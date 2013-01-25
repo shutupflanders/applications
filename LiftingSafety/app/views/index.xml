@@ -1,0 +1,7 @@
+<Alloy>
+	<TabGroup>
+		<Require src="liftingEquipmentTab"/>
+		<Require src="heightSafetyTab"/>
+		<Require src="test"/>
+	</TabGroup>
+</Alloy>
