@@ -23,18 +23,25 @@ function Controller() {
     $.addTopLevelView($.__views.leTab);
     exports.destroy = function() {};
     _.extend($, $.__views);
-    var currentWin = Ti.UI.currentWindow, views = [], products = Alloy.Collections.product;
-    products.fetch();
-    for (var i = 1; i < products.length; i++) {
+    var currentWin = Ti.UI.currentWindow, views = [], categories = Alloy.Collections.category;
+    categories.fetch();
+    for (var i = 1; i < categories.length; i++) {
         var view = Ti.UI.createView({
             top: 0,
             bottom: 0,
             left: 0,
             right: 0,
             backgroundColor: "#123"
-        }), viewLabel = Titanium.UI.createLabel({
+        }), image = Ti.UI.createImageView({
+            image: "/images/category/" + categories.at(i).get("image"),
+            width: auto,
+            height: auto,
+            top: 80
+        });
+        parentView.add(image);
+        var viewLabel = Titanium.UI.createLabel({
             color: "#999",
-            text: "Product " + i,
+            text: categories.at(i).get("title"),
             font: {
                 fontSize: 20,
                 fontFamily: "Helvetica Neue"

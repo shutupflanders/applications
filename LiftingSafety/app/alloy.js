@@ -11,3 +11,4 @@
 // Alloy.Globals.someGlobalFunction = function(){};
 //Alloy.Collections.products = Alloy.createCollection('products');
 Alloy.Collections.product = Alloy.createCollection('product');
+Alloy.Collections.category = Alloy.createCollection('category');
