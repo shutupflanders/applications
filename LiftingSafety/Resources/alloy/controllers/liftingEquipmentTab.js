@@ -23,8 +23,9 @@ function Controller() {
     $.addTopLevelView($.__views.leTab);
     exports.destroy = function() {};
     _.extend($, $.__views);
-    var currentWin = Ti.UI.currentWindow, views = [];
-    for (var i = 1; i < 6; i++) {
+    var currentWin = Ti.UI.currentWindow, views = [], products = Alloy.Collections.product;
+    products.fetch();
+    for (var i = 1; i < products.length; i++) {
         var view = Ti.UI.createView({
             top: 0,
             bottom: 0,

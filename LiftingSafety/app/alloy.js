@@ -10,4 +10,4 @@
 //
 // Alloy.Globals.someGlobalFunction = function(){};
 //Alloy.Collections.products = Alloy.createCollection('products');
-Alloy.Collections.test = Alloy.createCollection('test');
+Alloy.Collections.product = Alloy.createCollection('product');

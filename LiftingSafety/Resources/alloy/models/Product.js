@@ -1,27 +1,11 @@
 exports.definition = {
     config: {
-        columns: {
-            model: "varchar",
-            title: "varchar",
-            image: "varchar"
-        },
-        defaults: {
-            model: "Model",
-            title: "Title",
-            image: "Image"
-        },
         adapter: {
-            type: "sql",
-            collection_name: "Product"
+            type: "sql_new",
+            collection_name: "Product",
+            db_file: "/products.sqlite",
+            idAttribute: "_id"
         }
-    },
-    extendModel: function(Model) {
-        _.extend(Model.prototype, {});
-        return Model;
-    },
-    extendCollection: function(Collection) {
-        _.extend(Collection.prototype, {});
-        return Collection;
     }
 };
 

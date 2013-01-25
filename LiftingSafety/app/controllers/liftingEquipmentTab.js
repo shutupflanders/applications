@@ -1,7 +1,8 @@
 
 var currentWin = Ti.UI.currentWindow;
 var views = [];
-
+var products = Alloy.Collections.product;
+products.fetch();
 //Get Product list (for now TODO: top level categories)
 //Install SQLite Database
 //var db = Ti.Database.open('/database/products.sqlite', 'main');
@@ -42,7 +43,7 @@ rows.close();
 db.close();
 */
 //Scrollable View  
-for(var i=1;i<6;i++)
+for(var i=1;i<products.length;i++)
 {
 var view = Ti.UI.createView({
         top:0,

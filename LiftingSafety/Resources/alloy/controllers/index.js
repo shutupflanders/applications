@@ -17,12 +17,6 @@ function Controller() {
     $.__views.index.addTab($.__views.__alloyId3.getViewEx({
         recurse: !0
     }));
-    $.__views.__alloyId4 = Alloy.createController("test", {
-        id: "__alloyId4"
-    });
-    $.__views.index.addTab($.__views.__alloyId4.getViewEx({
-        recurse: !0
-    }));
     $.addTopLevelView($.__views.index);
     exports.destroy = function() {};
     _.extend($, $.__views);
