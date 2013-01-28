@@ -25,9 +25,10 @@ function Controller() {
     exports.destroy = function() {};
     _.extend($, $.__views);
     var currentWin = Ti.UI.currentWindow, views = [], categories = Alloy.Collections.category;
-    categories.fetch();
-    categories.where({
-        _id: 1
+    categories.fetch({
+        data: {
+            _id: 1
+        }
     });
     for (var i = 1; i < categories.length; i++) {
         var view = Ti.UI.createView({
