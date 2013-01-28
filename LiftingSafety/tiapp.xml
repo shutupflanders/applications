@@ -30,13 +30,12 @@
         <orientations device="ipad">
             <orientation>Ti.UI.PORTRAIT</orientation>
             <orientation>Ti.UI.UPSIDE_PORTRAIT</orientation>
-            <orientation>Ti.UI.LANDSCAPE_LEFT</orientation>
-            <orientation>Ti.UI.LANDSCAPE_RIGHT</orientation>
         </orientations>
     </iphone>
     <android xmlns:android="http://schemas.android.com/apk/res/android">
-        <manifest>
+        <manifest android:installLocation="preferExternal">
             <supports-screens android:anyDensity="false"/>
+            
         </manifest>
     </android>
     <mobileweb>
@@ -50,6 +49,7 @@
     <modules>
         <module platform="commonjs">ti.cloud</module>
         <module platform="android" version="1.0">ti.physicalSizeCategory</module>
+        <module version="0.1" platform="android">dk.mikkendigital.mkdfs</module>
     </modules>
     <deployment-targets>
         <target device="iphone">false</target>

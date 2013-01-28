@@ -4,6 +4,7 @@ function Controller() {
     var $ = this, exports = {}, __defers = {};
     $.__views.leWindow = A$(Ti.UI.createWindow({
         backgroundColor: "#fff",
+        orientationModes: [ Ti.UI.PORTRAIT, Ti.UI.UPSIDE_PORTRAIT ],
         id: "leWindow"
     }), "Window", null);
     $.__views.__alloyId0 = A$(Ti.UI.createLabel({
@@ -25,6 +26,9 @@ function Controller() {
     _.extend($, $.__views);
     var currentWin = Ti.UI.currentWindow, views = [], categories = Alloy.Collections.category;
     categories.fetch();
+    categories.where({
+        _id: 1
+    });
     for (var i = 1; i < categories.length; i++) {
         var view = Ti.UI.createView({
             top: 0,
@@ -32,23 +36,58 @@ function Controller() {
             left: 0,
             right: 0,
             backgroundColor: "#123"
-        }), image = Ti.UI.createImageView({
-            image: "/images/category/" + categories.at(i).get("image"),
-            width: auto,
-            height: auto,
-            top: 80
         });
-        parentView.add(image);
-        var viewLabel = Titanium.UI.createLabel({
-            color: "#999",
-            text: categories.at(i).get("title"),
+        if (Titanium.Filesystem.isExternalStoragePresent()) {
+            var mkdfs = require("dk.mikkendigital.mkdfs");
+            if (Alloy.Globals.debugOn) {
+                var label1 = Ti.UI.createLabel(), label2 = Ti.UI.createLabel();
+                label1.text = Titanium.Filesystem.getExternalStorageDirectory();
+                label2.text = mkdfs.getExternalFilesDir();
+                Ti.API.info("module externalStorageDirectory is => " + mkdfs.externalStorageDirectory);
+                Ti.API.info("module externalFilesDir is => " + mkdfs.externalFilesDir);
+            }
+            var image = Ti.UI.createImageView({
+                backgroundColor: "#fff",
+                top: 0,
+                borderColor: "#eee",
+                borderWidth: 1,
+                width: Titanium.UI.FILL,
+                image: Titanium.Filesystem.getFile(Alloy.Globals.categoryImageDir, categories.at(i).get("image"))
+            });
+            view.add(image);
+        } else if (Alloy.Globals.debugOn) {
+            label1.text = "No external storage found";
+            label2.text = "No external storage found";
+        }
+        if (Alloy.Globals.debugOn) {
+            view.add(label1);
+            view.add(label2);
+        }
+        var scrollViewTitle = Ti.UI.createScrollView({
+            showVerticalScrollIndicator: !0,
+            top: "50%",
+            height: "10%",
+            scrollType: "vertical"
+        }), labelTitle = Titanium.UI.createLabel({
+            textAlign: "left",
+            color: "#fff",
+            text: Alloy.Globals.htmlEntity(categories.at(i).get("title")),
             font: {
                 fontSize: 20,
                 fontFamily: "Helvetica Neue"
-            },
-            textAlign: "center"
+            }
         });
-        view.add(viewLabel);
+        scrollViewTitle.add(labelTitle);
+        view.add(scrollViewTitle);
+        var scrollViewDesc = Ti.UI.createScrollView({
+            showVerticalScrollIndicator: !0,
+            top: "60%",
+            scrollType: "vertical"
+        }), scrollViewChildLabel = Ti.UI.createLabel({
+            html: Alloy.Globals.htmlEntity(categories.at(i).get("description"))
+        });
+        scrollViewDesc.add(scrollViewChildLabel);
+        view.add(scrollViewDesc);
         views.push(view);
     }
     var sv = Ti.UI.createScrollableView({

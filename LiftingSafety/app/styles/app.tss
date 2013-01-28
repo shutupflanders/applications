@@ -1,5 +1,10 @@
 "Window": {
-	backgroundColor: "#fff"
+	backgroundColor: "#fff",
+	  orientationModes: [
+	        Ti.UI.PORTRAIT,
+	        Ti.UI.UPSIDE_PORTRAIT
+	    ] 
+	
 },
 "Label": {
 	width: Ti.UI.SIZE,
@@ -63,22 +68,6 @@ height: Ti.UI.SIZE,
 width: Ti.UI.SIZE
 }
 
-"#bookTitle": {
-top: '7dp',
-left: '7dp',
-font: {
-fontSize: '24dp',
-fontWeight: 'bold'
-}
-}
 
-"#author": {
-bottom: '7dp',
-left: '14dp',
-font: {
-fontSize: '16dp',
-fonWeight: 'normal'
-}
-}
 
 

@@ -10,5 +10,26 @@
 //
 // Alloy.Globals.someGlobalFunction = function(){};
 //Alloy.Collections.products = Alloy.createCollection('products');
+
+//Create Collections from db Tables
 Alloy.Collections.product = Alloy.createCollection('product');
 Alloy.Collections.category = Alloy.createCollection('category');
+
+//Storage paths for Resources
+Alloy.Globals.categoryImageDir = 'file:///storage/extSdCard/LS/category/';
+
+
+//set to true to turn on the printing of paths, etc
+Alloy.Globals.debugOn = false;
+
+
+//helpers to be included
+Alloy.Globals.htmlEntity = function(string){
+	Ti.include('/helpers/htmlentities.js');
+	
+	var result;
+	result = entityToHtml(string);
+	//result = result.replace(/<br\s*[\/]?>/gi, '\n');
+	//result = result.replace(/(<([^>]+)>)/ig,"");
+	return result;
+};

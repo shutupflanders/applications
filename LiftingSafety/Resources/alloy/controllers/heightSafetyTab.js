@@ -4,6 +4,7 @@ function Controller() {
     var $ = this, exports = {}, __defers = {};
     $.__views.hsWindow = A$(Ti.UI.createWindow({
         backgroundColor: "#fff",
+        orientationModes: [ Ti.UI.PORTRAIT, Ti.UI.UPSIDE_PORTRAIT ],
         id: "hsWindow"
     }), "Window", null);
     $.__views.hsTitle = A$(Ti.UI.createLabel({
