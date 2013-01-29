@@ -8,6 +8,8 @@ Alloy.Collections.categoryCategory = Alloy.createCollection("categoryCategory");
 
 Alloy.Globals.categoryImageDir = "file:///storage/extSdCard/LS/category/";
 
+Alloy.Globals.history = [];
+
 Alloy.Globals.debugOn = !1;
 
 Alloy.Globals.htmlEntity = function(string) {

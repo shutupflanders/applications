@@ -19,6 +19,8 @@ Alloy.Collections.categoryCategory = Alloy.createCollection('categoryCategory');
 //Storage paths for Resources
 Alloy.Globals.categoryImageDir = 'file:///storage/extSdCard/LS/category/';
 
+//History of views
+Alloy.Globals.history = [];
 
 //set to true to turn on the printing of paths, etc
 Alloy.Globals.debugOn = false;

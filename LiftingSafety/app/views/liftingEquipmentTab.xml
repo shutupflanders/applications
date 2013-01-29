@@ -2,7 +2,6 @@
 	<Tab id="leTab" title="Lifting Equipment Store">
 		<Window id="leWindow">
 			<Label>Lifting Equipment Store</Label>
-			<!--<ImageView id="leMainImage"/>-->
 		</Window>
 	</Tab>
 </Alloy>

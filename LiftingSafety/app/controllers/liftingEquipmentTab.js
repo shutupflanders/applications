@@ -5,35 +5,8 @@ var categoryCategories = Alloy.Collections.categoryCategory;
 var categories = Alloy.Collections.category;
 
 	categories.fetch({
-		query: 'SELECT * FROM Category LEFT JOIN CategoryCategory ON Category._id=CategoryCategory.childId WHERE CategoryCategory.parentId="2"'
+		query: 'SELECT * FROM Category LEFT JOIN CategoryCategory ON Category._id=CategoryCategory.childId WHERE CategoryCategory.parentId="2" AND status>0 ORDER BY rank'
 	});
-//fetch Lifting Equipment Categories
-/*categoryCategories.fetch({
-	query: 'SELECT * FROM CategoryCategory WHERE parentId="2"'
-});
-var childIds;
-for(var c=0;c<categoryCategories.length;c++)
-{
-	if(c<1)
-	{
-		childIds = '_id="'+categoryCategories.at(c).get('childId')+'"';
-	}
-	else
-	{
-		childIds = childIds+' OR _id="'+categoryCategories.at(c).get('childId')+'"';
-	}
-}
-*/
-/*var labelTitle = Titanium.UI.createLabel({
-    	textAlign: "left",
-        color:'#000',
-        html:childIds,
-        font:{fontSize:20,fontFamily:'Helvetica Neue'},
-    });
-    
-    $.leWindow.add(labelTitle);*/
-	
-	
 	
 	//Create Views for ScrollableView  
 	for(var i=0;i<categories.length;i++)
@@ -63,6 +36,7 @@ for(var c=0;c<categoryCategories.length;c++)
 		 
 	// Category Image.
 		    var image = Ti.UI.createImageView({
+		    	id: categories.at(i).get("_id"),
 		    	backgroundColor:"#fff",
 		        top : 0,
 	  			borderColor: '#eee',
@@ -70,7 +44,18 @@ for(var c=0;c<categoryCategories.length;c++)
 	  			width:Titanium.UI.FILL,
 		        image : Titanium.Filesystem.getFile(Alloy.Globals.categoryImageDir, categories.at(i).get("image"))
 			    });
-			view.add(image); 
+			    //Add Click Event Listener to open new window with subCats/Products
+				image.addEventListener('click', function(e)
+				{
+					var obj = e.source;
+					var subCategory = Alloy.createController('subCategory', {
+								parentId : obj.id,
+								previous : 2
+							}).getView();
+					Alloy.Globals.history.push(Ti.UI.createPickerRow({title:'Lifting Equipment Shop'}));		
+					
+				});
+				view.add(image); 
 			   
 	   	}
 		else 
@@ -121,7 +106,7 @@ for(var c=0;c<categoryCategories.length;c++)
 	//ScrollableView
 	var sv = Ti.UI.createScrollableView({
 	    id:'scroller',
-	    showPagingControl:false,
+	    showPagingControl:true,
 	    top:0,
 	    bottom:0,
 	    left:0,

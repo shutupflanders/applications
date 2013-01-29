@@ -69,5 +69,8 @@ width: Ti.UI.SIZE
 }
 
 
+"#scWindow":{
+	exitOnClose: false
+}
 
 
