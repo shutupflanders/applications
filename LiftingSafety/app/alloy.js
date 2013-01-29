@@ -14,6 +14,7 @@
 //Create Collections from db Tables
 Alloy.Collections.product = Alloy.createCollection('product');
 Alloy.Collections.category = Alloy.createCollection('category');
+Alloy.Collections.categoryCategory = Alloy.createCollection('categoryCategory');
 
 //Storage paths for Resources
 Alloy.Globals.categoryImageDir = 'file:///storage/extSdCard/LS/category/';

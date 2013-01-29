@@ -4,6 +4,8 @@ Alloy.Collections.product = Alloy.createCollection("product");
 
 Alloy.Collections.category = Alloy.createCollection("category");
 
+Alloy.Collections.categoryCategory = Alloy.createCollection("categoryCategory");
+
 Alloy.Globals.categoryImageDir = "file:///storage/extSdCard/LS/category/";
 
 Alloy.Globals.debugOn = !1;
