@@ -55,13 +55,16 @@ function Controller() {
                 image: Titanium.Filesystem.getFile(Alloy.Globals.categoryImageDir, categories.at(i).get("image"))
             });
             image.addEventListener("click", function(e) {
+                var history = Ti.UI.createPickerRow({
+                    list_id: 2,
+                    title: "Lifting Equipment Shop"
+                });
+                Alloy.Globals.history.push(history);
+                Alloy.Globals.history.length > 9 && Alloy.Globals.history.shift();
                 var obj = e.source, subCategory = Alloy.createController("subCategory", {
                     parentId: obj.id,
                     previous: 2
                 }).getView();
-                Alloy.Globals.history.push(Ti.UI.createPickerRow({
-                    title: "Lifting Equipment Shop"
-                }));
             });
             view.add(image);
         } else if (Alloy.Globals.debugOn) {

@@ -58,13 +58,16 @@ function Controller() {
                 image: Titanium.Filesystem.getFile(Alloy.Globals.categoryImageDir, categories.at(i).get("image"))
             });
             image.addEventListener("click", function(e) {
+                var history = Ti.UI.createPickerRow({
+                    list_id: 3,
+                    title: "Height Safety Store"
+                });
+                Alloy.Globals.history.push(history);
+                Alloy.Globals.history.length > 9 && Alloy.Globals.history.shift();
                 var obj = e.source, subCategory = Alloy.createController("subCategory", {
                     parentId: obj.id,
                     previous: 3
                 }).getView();
-                Alloy.Globals.history.push(Ti.UI.createPickerRow({
-                    title: "Height Safety Store"
-                }));
             });
             view.add(image);
         } else if (Alloy.Globals.debugOn) {

@@ -47,12 +47,17 @@ var categories = Alloy.Collections.category;
 			    //Add Click Event Listener to open new window with subCats/Products
 				image.addEventListener('click', function(e)
 				{
+					var history = Ti.UI.createPickerRow({list_id:3, title:'Height Safety Store'});
+					Alloy.Globals.history.push(history);
+					if(Alloy.Globals.history.length>9)
+					{
+						Alloy.Globals.history.shift();
+					}
 					var obj = e.source;
 					var subCategory = Alloy.createController('subCategory', {
 								parentId : obj.id,
 								previous : 3
-							}).getView();
-					Alloy.Globals.history.push(Ti.UI.createPickerRow({title:'Height Safety Store'}));	
+							}).getView();	
 				});
 				view.add(image); 
 			   

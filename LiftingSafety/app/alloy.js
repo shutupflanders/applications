@@ -21,6 +21,7 @@ Alloy.Globals.categoryImageDir = 'file:///storage/extSdCard/LS/category/';
 
 //History of views
 Alloy.Globals.history = [];
+Alloy.Globals.history.push(Ti.UI.createPickerRow({title:'Choose a page to go back to...'}));
 
 //set to true to turn on the printing of paths, etc
 Alloy.Globals.debugOn = false;

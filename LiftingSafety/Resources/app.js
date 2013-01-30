@@ -10,6 +10,10 @@ Alloy.Globals.categoryImageDir = "file:///storage/extSdCard/LS/category/";
 
 Alloy.Globals.history = [];
 
+Alloy.Globals.history.push(Ti.UI.createPickerRow({
+    title: "Choose a page to go back to..."
+}));
+
 Alloy.Globals.debugOn = !1;
 
 Alloy.Globals.htmlEntity = function(string) {
