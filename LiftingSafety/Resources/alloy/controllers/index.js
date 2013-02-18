@@ -5,16 +5,16 @@ function Controller() {
     $.__views.index = A$(Ti.UI.createTabGroup({
         id: "index"
     }), "TabGroup", null);
-    $.__views.__alloyId3 = Alloy.createController("liftingEquipmentTab", {
+    $.__views.__alloyId2 = Alloy.createController("liftingEquipmentTab", {
+        id: "__alloyId2"
+    });
+    $.__views.index.addTab($.__views.__alloyId2.getViewEx({
+        recurse: !0
+    }));
+    $.__views.__alloyId3 = Alloy.createController("heightSafetyTab", {
         id: "__alloyId3"
     });
     $.__views.index.addTab($.__views.__alloyId3.getViewEx({
-        recurse: !0
-    }));
-    $.__views.__alloyId4 = Alloy.createController("heightSafetyTab", {
-        id: "__alloyId4"
-    });
-    $.__views.index.addTab($.__views.__alloyId4.getViewEx({
         recurse: !0
     }));
     $.addTopLevelView($.__views.index);
